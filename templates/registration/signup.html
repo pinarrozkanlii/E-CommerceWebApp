@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <script src="https://kit.fontawesome.com/0908dda00f.js" crossorigin="anonymous"></script>
+        <style>
+           *{
+  
+    box-sizing: border-box;
+}
+body,html {
+    background-image: url("https://s2.best-wallpaper.net/wallpaper/3840x2160/1708/Burger-meat-knife-food_3840x2160.jpg");
+    height:100%;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    
+
+}
+
+
+.bg-image:after{
+    position:absolute;
+    content: '';
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background: rgba(0,0,0,0.7);
+    
+
+}
+.content{
+    
+    position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align:center;
+    z-index: 999;
+    width:370px;
+    padding: 60px 32px;
+    background: rgba(255,255,255,0.04);
+    box-shadow: -1px 4px 28px 0px rgba(0,0,0,0.75);
+
+}
+
+.content header{
+    color:white;
+    font-size: 33px;
+    font-weight:600;
+    margin:0 0 35px 0;
+    font-family:'Montserrat',sans-serif;
+}
+
+.field{
+    
+    position:relative;
+    height:45px;
+    width:100%;
+    display:flex;
+    background: rgba(255,255,255,0.94);
+}
+
+.field input{
+    height:100%;
+    width:100%;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:#222;
+    font-size:16px;
+    font-family: 'Poppins',sans-serif;
+
+}
+.show{
+    position:absolute;
+    right:13px;
+    font-size:13px;
+    font-weight:700;
+    color:#222;
+    cursor:pointer;
+    display:none;
+    font-family: 'Montserrat',sans-serif;
+}
+.field span{
+    color:#222;
+    width:40px;
+    line-height:45px;
+
+}
+.password:valid ~ .show {
+    display:block;
+}
+.space{
+    margin-top:16px;
+
+}
+.space2{ 
+    margin-top:16px;
+    margin-bottom:20px;
+}
+
+
+input[type="submit"]{
+    
+    background:#610606;
+    border:1px solid #610606;
+    color:white;
+    font-size:18px;
+    letter-spacing:1px;
+    font-weight:600;
+    font-family:'Montserrat',sans-serif;
+    cursor:pointer;
+    
+}
+input[type="submit"]:hover{
+    
+    color:#792323;
+
+}
+
+.field span.fa-check-circle{
+    color:#2ecc71;
+    visibility:hidden;
+}
+
+.field span.fa-exclamation-circle{
+    color:#e74c3c;
+    visibility:hidden;
+}
+
+.field-success span.fa-check-circle{
+    color:#2ecc71;
+    visibility:visible;
+}
+.field-error span.fa-exclamation-circle{
+    color:#e74c3c;
+    visibility:visible;
+}
+
+.form-control{
+    height:100%;
+    width:100%;
+    background:transparent;
+    border:none;
+    outline:none;
+    color:#222;
+    font-size:16px;
+    font-family: 'Poppins',sans-serif;
+}
+        </style>
+    </head>
+    <body>
+        <div class="bg-image">
+            <div class="content">
+                <header>Signup</header>
+                <form method="POST" action="" id="form">
+                    {% csrf_token %}
+                    <div class="field" id="email">
+                        <span class="fa fa-user"></span>
+                        {{ form.email }}
+                        <span class="fas fa-check-circle" id="check"></span>
+                        <span class="fas fa-exclamation-circle" id="exc"></span>
+
+                        
+                    </div>
+                    <div class="field space">
+                        
+                        <span class="fa fa-lock"></span>
+                        <input type="password" class="password" required placeholder="Password">
+                        <span class="show">SHOW</span>
+                        
+
+                        
+                    </div>
+                    <div class="field space2"> <!--space2-->
+                        
+                        <span class="fa fa-lock"></span>
+                        <input type="password" class="password" required placeholder="Confirm Password">
+                        <span class="show">SHOW</span>
+                        <span class="fas fa-check-circle"></span>
+                        <span class="fas fa-exclamation-circle"></span>
+                        
+
+                        
+                    </div>
+                    
+                        
+                    
+                        
+                    <div class="field">
+                        
+                        <input type="submit" value="SIGNUP">
+
+                        
+                    </div>
+                    
+                </form>
+            </div>
+
+        </div>
+        
+        <script>
+            let form_fields = document.getElementsByTagName('input');
+            form_fields[1].placeholder='Email';
+            form_fields[2].placeholder='Password';
+            form_fields[3].placeholder='Confirm Password';
+
+
+            for(let field in form_fields){
+                form_fields[field].className += 'form-control';
+            }    
+            
+        
+        
+        </script>
+    </body>
+</html>

@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+        <script src="https://kit.fontawesome.com/0908dda00f.js" crossorigin="anonymous"></script>
+        
+    </head>
+    <body>
+        <div class="bg-image">
+            <div class="content">
+            {% csrf_token %}
+                <header>Login</header>
+                <form action="#">
+                    <div class="field">
+                        <span class="fa fa-user"></span>
+                        <input type="text" placeholder="Email">
+
+                        
+                    </div>
+                    <div class="field space">
+                        <span class="fa fa-lock"></span>
+                        <input type="password" class="password" required placeholder="Password">
+                        <span class="show">SHOW</span>
+
+                        
+                    </div>
+                    <div class="pass">
+                        <a href="#">Forgot Password</a>
+                    </div>
+                    <div class="field">
+                        
+                        <input type="submit" value="LOGIN">
+
+                        
+                    </div>
+                    <div class="signup">Don't have an account
+                        <a href="/register/signup.html">Signup Now</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        
+        <script>
+            const pass_field=document.querySelector('.password');
+            const show_btn=document.querySelector('.show');
+            show_btn.addEventListener('click',function(){
+                if(pass_field.type==="password"){
+                    pass_field.type="text";
+                    show_btn.textContent="HIDE";
+                }else{
+                    pass_field.type="password";
+                    show_btn.textContent="SHOW";
+                }
+                    
+            });
+        </script>
+    </body>
+</html>s

@@ -1,0 +1,155 @@
+{% extends "./base.html" %}
+{% load static %}
+{% block extra_head %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section>
+        <div class="content">
+            
+                <header>Address</header>
+                <form action="submit" id="form">
+                    <div class="field">
+                        
+                        <input type="text" placeholder="Name">
+
+                        
+                    </div>
+                    <div class="field">
+                        
+                        <input type="text" class="text" placeholder="Lastname">
+                        
+
+                        
+                    </div>
+                    <div class="field">
+                        
+                        <input type="text" class="text" placeholder="AdressLine1">
+                        
+
+                        
+                    </div>
+                    <div class="field">
+                        
+                        <input type="text" class="text" placeholder="AddressLine2">
+                        
+
+                        
+                    </div>
+                    <div class="field">
+                        
+                        <input type="text" class="text" placeholder="ZipCode">
+                        
+
+                        
+                    </div>
+                    <div class="field">
+                        
+                        <input type="text" class="text" placeholder="City">
+                        
+
+                        
+                    </div>
+                    <div class="field">
+                        
+                        <input type="text" class="text" placeholder="PhoneNumeber">
+                       
+
+                        
+                    </div>
+                    
+                    <div class="field">
+                        
+                        <input type="submit" value="CONTINUE" id="continue">
+                        <div id="payment">Paypal Options</div><button id="checkout-btn">checkout</button
+
+                        <div id="subtotal" class="d-inline-flex">Total: €</div>
+
+                    </div>
+                    
+                </form>
+            </div>
+                
+                
+            
+
+             
+             
+        
+        </div>
+        
+        
+        
+        
+           
+        
+        
+        
+    </section>
+    <script>
+                
+
+                let total = '{{order.get_cart_total|floatformat:2}}'
+                let form = document.getElementById('form')
+
+                form.addEventListener('submit',function(e){
+                    e.preventDefault()
+                    console.log('Form submitted..')
+
+                    document.getElementById('continue').classList.add('hidden')
+                    document.getElementById('payment').classList.remove('hidden')
+
+
+
+                })
+
+                document.getElementById('checkout').addEventListener('click',function(e){
+                    submitFormData()
+
+                })
+                function submitFormData(){
+                    console.log('Payment button clicked')
+
+                    let setFormData = {
+                        'name':null,
+                        'email':null,
+                        'total':total,
+                    }
+
+                    let addressInfo ={
+                        'City':null,
+                        'Zipcode':null,
+                        'Addressline1':null,
+                        'Addressline2':null,
+                        'PhoneNumber':null
+                    }
+                    let url  = '/order/'
+                    fetch(url,{
+                        method:'POST',
+                        headers:{
+                            'Content-Type':'application/json',
+                            'X-CSRFToken':csrftoken,
+                        },
+                        body:JSON.stringify({'form':userrFormData, 'shipping':addressInfo})
+                    })
+                    .then((response)=>response.json())
+                    .then((data)=>{
+                        console.log('Success:',data);
+                        alert('Transaction completed');
+                        window.location.href = "{% url 'home_page' %}"
+                    })
+
+                }
+
+
+
+        
+        
+        </script>       
+
+          
+
+
+{% endblock %}

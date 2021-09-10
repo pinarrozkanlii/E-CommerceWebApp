@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+  }
+
+body,html {
+background-image: url("https://s2.best-wallpaper.net/wallpaper/3840x2160/1708/Burger-meat-knife-food_3840x2160.jpg");
+height:100%;
+
+background-attachment: fixed;
+background-size: cover;
+background-position: center;
+
+
+
+
+} 
+a {
+color:white;
+text-decoration:none;
+}
+.background{
+
+display:flex;
+background-image:url("https://s2.best-wallpaper.net/wallpaper/3840x2160/1708/Burger-meat-knife-food_3840x2160.jpg");
+
+
+
+
+
+
+
+
+
+}
+.nav{
+margin-top:0;
+display:flex;
+}
+
+table{
+position:relative;
+width:100%;
+margin-top: 18px;
+color:white;
+
+
+}
+
+
+thead th:nth-child(2) {
+color: white;
+width:35%;
+font-family: 'Alex Brush', cursive;
+text-align:right;
+font-size:30px;
+}
+
+thead th:nth-child(3){
+font-family: 'Rajdhani', sans-serif;
+text-align:right;
+}
+thead th:nth-child(1){
+font-family: 'Rajdhani', sans-serif;
+}
+
+thead th:nth-child(4){
+font-family: 'Rajdhani', sans-serif;
+
+}
+section{
+position:absolute;
+height:310px;
+width:80vh;
+margin-top:30vh;
+margin-left:50vh;
+border-radius:10px;
+display:flex;
+align-items:center;
+visibility:hidden;
+
+
+}
+img{
+border-radius:50%;
+width:150px;
+}
+.menu-option{
+margin:5px;    
+align-items:center;
+background:rgba(0,0,0,0.1);
+box-shadow:0 0 10px rgba(0,0,0,1);
+padding:60px;
+
+}
+.cursor{
+cursor:pointer;
+}
+h3{
+color:white;
+}
+
+.section .inner {
+  height:200px;
+  overflow:auto;
+  margin:15px -300px 15px 15px;
+  padding-right:300px;
+  
+}
